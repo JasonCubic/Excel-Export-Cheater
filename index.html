@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Excel Export Cheater</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function saveToExcel() {
+            $( '#dataToDisplay' ).val( $( '#excel_export' ).html() );
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="excel_export">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Jane</th>
+                    <th>John</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Apples</th>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <th>Pears</th>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>Plums</th>
+                    <td>5</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <th>Bananas</th>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>Oranges</th>
+                    <td>2</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>&nbsp;</p>
+    <form action='SaveToExcel.php' name='savetoexcelform' id='savetoexcelform' method='post' onsubmit="return saveToExcel();">
+        <input type='hidden' id='dataToDisplay' name='dataToDisplay'>
+        <input type='hidden' name='filename' value='export_to_excel_demo.xls'>
+        <input type="submit" value="Export To Excel">
+    </form>
+</body>
+</html>
